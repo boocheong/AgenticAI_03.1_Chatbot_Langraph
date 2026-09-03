@@ -23,12 +23,12 @@ from langgraph.types import interrupt, Command
 load_dotenv()
 
 
-llm = ChatOllama(model="qwen2.5:7b")
+llm = ChatOllama(model="qwen2.5:7b", base_url="http://ollama:11434")
 
 
 # Embeddings model
 embeddings = OllamaEmbeddings(
-    model="nomic-embed-text",  # or any embedding-capable model you've pulled
+    model="nomic-embed-text", base_url="http://ollama:11434" # or any embedding-capable model you've pulled
 )
 
 
