@@ -23,14 +23,15 @@ from langgraph.types import interrupt, Command
 load_dotenv()
 
 
-llm = ChatOllama(model="qwen2.5:7b", base_url="http://ollama:11434")
+OLLAMA_BASE_URL = os.environ.get("OLLAMA_BASE_URL", "http://localhost:11434")
 
+llm = ChatOllama(model="qwen2.5:7b", base_url=OLLAMA_BASE_URL)
 
-# Embeddings model
 embeddings = OllamaEmbeddings(
-    model="nomic-embed-text", base_url="http://ollama:11434" # or any embedding-capable model you've pulled
+    model="nomic-embed-text",   # or whatever model you have there
+    base_url=OLLAMA_BASE_URL,
+    # ...other existing args
 )
-
 
 
 def ingest_rag_document(file_path):
