@@ -11,7 +11,7 @@ WORKDIR /app
 # libgompl is commonly required by faiss-cpu
 RUN apt-get update && apt-get install -y --no-install-recommends \
     build-essential \
-    libgomp \
+    libgomp1 \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements first for Docker build caching
